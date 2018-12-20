@@ -4,8 +4,9 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    sh 'mkdir /home/testdemo'
-                    echo 'hello jenkins'
+                    sh 'make check || true'
+                    junit '**/target/*.xml'
+                    echo 'hello jenkins test'
                 }
             }
         }

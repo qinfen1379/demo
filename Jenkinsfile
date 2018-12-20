@@ -2,11 +2,15 @@
 pipeline {
     agent any 
         stages {
-            stage('Build') {
-                steps {
-                    def username = 'hello'
-                    echo "my val is ${username}"
-                    echo 'hello jenkins test'
+            stage('Depoly') {
+            when {
+                expression {
+                    currentBuild.result == null || currentBuild.result == 'SUCCESS'
+                    }
+                  }
+            steps {
+                sh 'make publish'
+
                 }
             }
         }

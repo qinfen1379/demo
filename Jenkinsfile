@@ -4,8 +4,8 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    sh 'make check || true'
-                    junit '**/target/*.xml'
+                    def username = 'hello'
+                    echo "my val is ${username}"
                     echo 'hello jenkins test'
                 }
             }

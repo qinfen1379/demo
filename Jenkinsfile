@@ -2,10 +2,10 @@
 pipeline {
     agent any 
         stages {
-            stage('Stage 1') {
+            stage('Build') {
                 steps {
-                    echo 'Hello world!' 
-                    echo 'Hello jenkins!' 
+                    sh 'make' 
+                    archiveArtifacts artifacts:'**/target/*.jar',fingerprint true 
                 }
             }
         }

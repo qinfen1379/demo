@@ -4,7 +4,7 @@ pipeline {
         stages {
             stage('Build') {
                 steps {
-                    echo 'do not git push'
+                    sh 'mkdir /home/testdemo'
                     echo 'hello jenkins'
                 }
             }

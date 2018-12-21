@@ -11,7 +11,7 @@ pipeline {
     }
     post {
         failure {
-            mail to: qinfen_python@163.com, subject: 'the pipeline is failed :('
+            mail to: qinfen_python@163.com, subject: 'The Pipeline failed :('
         }
     }
 }

@@ -10,11 +10,8 @@ pipeline {
         }
     }
     post {
-        always {
-            mail to:qinfen_python@163.com, subject: 'the pipeline is ok :('
-        }
         failure {
-            mail to:qinfen_python@163.com, subject: 'the pipeline is failed :('
+            mail to: qinfen_python@163.com, subject: 'the pipeline is failed :('
         }
     }
 }

@@ -8,7 +8,7 @@ pipeline {
                 BITBUCKET_COMMON_CREDS = credentials('jenkins-bitbucket-common-creds')
             }
             steps {
-                echo 'val is ${TBUCKET_COMMON_CREDS}'
+                echo 'val is ${BITBUCKET_COMMON_CREDS}'
             }
         }
         stage('Example stage 2') {

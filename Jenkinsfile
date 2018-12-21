@@ -11,8 +11,5 @@ pipeline {
 		always {
             junit '**/target/*.xml'
         }
-        failure {
-            mail to: qinfen_python@163.com, subject: 'The Pipeline failed'
-        }
     }
 }

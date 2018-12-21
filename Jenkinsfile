@@ -2,18 +2,13 @@
 
 pipeline {
     agent any
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+    }
     stages {
-        stage('Example stage 1') {
-            environment {
-                BITBUCKET_COMMON_CREDS = credentials('jenkins-bitbucket-common-creds')
-            }
+        stage('Example') {
             steps {
-                echo 'val is ${BITBUCKET_COMMON_CREDS}'
-            }
-        }
-        stage('Example stage 2') {
-            steps {
-                echo 'securt username and passwd is right'
+                echo "${params.Greeting} World!"
             }
         }
     }

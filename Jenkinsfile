@@ -1,7 +1,20 @@
 #!/usr/bin/env groovy
 
-node {
-	def username = 'qinfen'
-	echo "my name is ${username}"
-    echo "Running ${env.BUILD_ID}"
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                sh 'make check'
+            }
+        }
+    }
+    post {
+        always {
+            mail to:qinfen_python@163.com, subject: 'the pipeline is ok :('
+        }
+        failure {
+            mail to:qinfen_python@163.com, subject: 'the pipeline is failed :('
+        }
+    }
 }
